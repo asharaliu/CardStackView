@@ -35,6 +35,7 @@ class MainActivity : AppCompatActivity(), CardStackListener {
 
     override fun onCardSwiped(direction: Direction) {
         Log.d("CardStackView", "onCardSwiped: p = ${manager.topPosition}, d = $direction")
+        // Added this check to avoid swiping function on last card
         if(manager.topPosition == htmlData.size -1){
             manager.setCanScrollHorizontal(false)
             manager.setCanScrollVertical(false)
@@ -72,7 +73,6 @@ class MainActivity : AppCompatActivity(), CardStackListener {
                 .build()
             manager.setRewindAnimationSetting(setting)
             cardStackView.rewind()
-
             manager.setCanScrollHorizontal(true)
             manager.setCanScrollVertical(true)
         }
