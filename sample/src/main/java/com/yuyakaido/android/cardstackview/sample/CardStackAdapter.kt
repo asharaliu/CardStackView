@@ -17,11 +17,11 @@ class CardStackAdapter(
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        val spot = htmlList[position]
+        val htmlString = htmlList[position]
         val mimeType = "text/html"
         val encoding = "UTF-8"
 
-        holder.vwContainer.loadDataWithBaseURL("", spot, mimeType, encoding, "")
+        holder.vwContainer.loadDataWithBaseURL("", htmlString, mimeType, encoding, "")
         holder.itemView.setOnClickListener { v ->
             Toast.makeText(v.context, "$position Clicked", Toast.LENGTH_SHORT).show()
         }
